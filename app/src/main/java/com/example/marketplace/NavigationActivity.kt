@@ -1,5 +1,6 @@
 package com.example.marketplace
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -9,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.marketplace.databinding.ActivityNavigationBinding
+import com.example.marketplace.ui.login.LoginActivity
 import com.example.marketplace.util.Prefs
 
 class NavigationActivity : AppCompatActivity() {
@@ -43,11 +45,15 @@ class NavigationActivity : AppCompatActivity() {
                 val s = Prefs(this)
                 if(s.getIsLogin()) {
                     Log.d("TAG", "Sudah login")
+                    navController.navigate(it.itemId)  // pindah fragmen
                 }else {
+//                    pindah activity
+                    startActivity(Intent(this, LoginActivity::class.java))
                     Log.d("TAG", "Belum login")
                 }
 
             }else{
+                navController.navigate(it.itemId) // pindah fragmen
                 Log.d("TAG", "onCreate: yang lain" +it.itemId)
             }
 
