@@ -8,13 +8,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.marketplace.databinding.FragmentNotificationsBinding
+import com.example.marketplace.util.Prefs
 
 class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -32,6 +30,13 @@ class NotificationsFragment : Fragment() {
         notificationsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+//        panggil preverense
+        var s = Prefs(this.activity!!)
+        binding.btnLogout.setOnClickListener {
+            s.setIsLogin(false) // status login false
+        }
+
         return root
     }
 

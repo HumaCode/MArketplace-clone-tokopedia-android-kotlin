@@ -5,4 +5,12 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="keranjang">Keranjang</string>
     <string name="title_notifications">Notifications</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="lupa_password">Lupa Password</string>
+    <string name="masuk">Masuk</string>
+    <string name="google">Google</string>
+    <string name="masuk_dengan">atau masuk dengan</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="daftar">Daftar</string>
 </resources>

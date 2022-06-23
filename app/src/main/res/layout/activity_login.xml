@@ -6,36 +6,127 @@
     android:layout_height="match_parent"
     tools:context=".ui.login.LoginActivity">
 
-    <LinearLayout
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/_15sdp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:inputType="textEmailAddress"
+            android:background="@color/white"
+            android:textSize="@dimen/_15ssp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+    
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:inputType="textPassword"
+            android:background="@color/white"
+            android:textSize="@dimen/_15ssp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerInParent="true">
+        android:text="@string/lupa_password"
+        android:layout_marginVertical="@dimen/_15sdp"
+        android:textColor="@color/colorPrimary"
+        android:layout_gravity="end"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:text="@string/masuk"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_15ssp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_15sdp">
+
+        <View
+            android:id="@+id/lineLeft"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#C6C6C6"
+            android:layout_toStartOf="@+id/text1"
+            android:layout_centerVertical="true"/>
 
         <TextView
-            android:id="@+id/tv_status"
+            android:id="@+id/text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Status Login"
-            android:textSize="@dimen/_18sdp"/>
+            android:text="@string/masuk_dengan"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+        <View
+            android:id="@+id/lineRight"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#C6C6C6"
+            android:layout_toEndOf="@+id/text1"
+            android:layout_centerVertical="true"/>
+
+
+    </RelativeLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:text="@string/google"
+        android:textAllCaps="false"
+        android:textColor="#838383"
+        style="@style/Button.OutlineBox"
+        app:icon="@drawable/ic_google"
+        app:iconSize="@dimen/_19sdp"
+        app:iconTint="@null"
+        android:textSize="@dimen/_15ssp"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_horizontal">
 
         <TextView
-            android:id="@+id/btn_login"
+            android:id="@+id/tvStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:textSize="@dimen/_18sdp"
-            android:layout_marginTop="10dp"/>
+            android:text="@string/belum_punya_akun"
+            android:layout_marginEnd="@dimen/_3sdp"/>
 
         <TextView
-            android:id="@+id/btn_logout"
+            android:id="@+id/btn_daftar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logout"
-            android:textSize="@dimen/_18sdp"
-            android:layout_marginTop="10dp"/>
+            android:text="@string/daftar"
+            android:textColor="@color/colorPrimary"/>
 
     </LinearLayout>
 
+
+</LinearLayout>
 
 </RelativeLayout>

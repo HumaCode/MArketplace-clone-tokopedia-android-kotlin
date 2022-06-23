@@ -2,9 +2,7 @@ package com.example.marketplace.ui.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.marketplace.R
 import com.example.marketplace.databinding.ActivityLoginBinding
-import com.example.marketplace.databinding.FragmentHomeBinding
 import com.example.marketplace.util.Prefs
 
 class LoginActivity : AppCompatActivity() {
@@ -30,11 +28,11 @@ class LoginActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-//        tombol login
-        binding.btnLogout.setOnClickListener {
-            s.setIsLogin(false) // status login false
-            onBackPressed()
-        }
+//        tombol logout
+//        binding.btnLogout.setOnClickListener {
+//            s.setIsLogin(false) // status login false
+//            onBackPressed()
+//        }
 
     }
 }
