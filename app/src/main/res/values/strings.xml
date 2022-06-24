@@ -4,7 +4,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="keranjang">Keranjang</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="akun">Akun</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="lupa_password">Lupa Password</string>
@@ -13,4 +13,8 @@
     <string name="masuk_dengan">atau masuk dengan</string>
     <string name="belum_punya_akun">Belum punya akun?</string>
     <string name="daftar">Daftar</string>
+    <string name="silahkan_login">Silahkan Login</string>
+    <string name="nama">Nama</string>
+    <string name="no_tlp">No. Telepon</string>
+    <string name="logout">Logout</string>
 </resources>

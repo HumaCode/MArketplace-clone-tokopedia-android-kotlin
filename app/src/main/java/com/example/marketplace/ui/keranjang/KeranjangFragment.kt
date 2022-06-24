@@ -12,9 +12,6 @@ import com.example.marketplace.databinding.FragmentKeranjangBinding
 class KeranjangFragment : Fragment() {
 
     private var _binding: FragmentKeranjangBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -28,10 +25,7 @@ class KeranjangFragment : Fragment() {
         _binding = FragmentKeranjangBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textKeranjang
-        keranjangViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+
         return root
     }
 

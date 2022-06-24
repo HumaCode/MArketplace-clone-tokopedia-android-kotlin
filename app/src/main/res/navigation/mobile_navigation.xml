@@ -24,8 +24,8 @@
         tools:layout="@layout/fragment_keranjang" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.marketplace.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_akun"
+        android:name="com.example.marketplace.ui.akun.AkunFragment"
+        android:label="@string/akun"
+        tools:layout="@layout/fragment_akun" />
 </navigation>

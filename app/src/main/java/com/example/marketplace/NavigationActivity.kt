@@ -30,7 +30,7 @@ class NavigationActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_keranjang
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_akun, R.id.navigation_keranjang
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
@@ -41,9 +41,8 @@ class NavigationActivity : AppCompatActivity() {
 
 
 //            cek status login
-            if(it.itemId == R.id.navigation_notifications) {
-                val s = Prefs(this)
-                if(s.getIsLogin()) {
+            if(it.itemId == R.id.navigation_akun) {
+                if(Prefs.isLogin) {
                     Log.d("TAG", "Sudah login")
                     navController.navigate(it.itemId)  // pindah fragmen
                 }else {

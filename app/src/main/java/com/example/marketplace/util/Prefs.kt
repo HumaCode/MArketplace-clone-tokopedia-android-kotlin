@@ -1,26 +1,23 @@
 package com.example.marketplace.util
 
-import android.app.Activity
-import android.content.Context
-import android.content.SharedPreferences
+import com.chibatching.kotpref.KotprefModel
+import com.example.marketplace.core.data.source.model.User
+import com.inyongtisto.myhelper.extension.toJson
+import com.inyongtisto.myhelper.extension.toModel
 
-class Prefs(activity: Activity) {
-    private var sp : SharedPreferences? = null
-    private var login = "login"
+object Prefs : KotprefModel(){
+    var isLogin by booleanPref(false)
 
-//    method yang pertamakali di panggil
-    init {
-        sp = activity.getSharedPreferences("MYPREF", Context.MODE_PRIVATE)
+    var user by stringPref()
+
+//    mengubah data user dari json ke string
+    fun setUser(data: User?) {
+        user = data.toJson()
     }
 
-//    function status login
-    fun setIsLogin(value: Boolean) {
-        sp!!.edit().putBoolean(login, value).apply()
+//    ubah menjadi bentuk model
+    fun getUser() : User? {
+        if(user.isEmpty()) return null
+        return user.toModel(User::class.java)
     }
-
-//    function  status login default false
-    fun getIsLogin() : Boolean {
-        return sp!!.getBoolean(login, false)
-    }
-
 }

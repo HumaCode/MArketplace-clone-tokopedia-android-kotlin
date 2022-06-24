@@ -5,6 +5,7 @@ import com.example.marketplace.core.data.source.local.LocalDataSource
 import com.example.marketplace.core.data.source.remote.RemoteDataSource
 import com.example.marketplace.core.data.source.remote.network.Resource
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
+import com.example.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
 import kotlinx.coroutines.flow.flow
@@ -18,9 +19,11 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
         try {
             remote.login(data).let {
                 if(it.isSuccessful) {
-
+                    Prefs.isLogin = true  // ubah status login menjadi true
                     val body = it.body()
-                    emit(Resource.success(body?.data))  // success
+                    val user = body?.data  // menampng data user login
+                    Prefs.setUser(user)  // mengambil data user
+                    emit(Resource.success(user))  // success
                     logs("Success : " + body.toString())
                 }else{
                     emit(Resource.error(it.getErrorBody()?.message ?: "Error default", null))
