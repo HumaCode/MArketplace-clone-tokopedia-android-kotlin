@@ -2,6 +2,7 @@ package com.example.marketplace.ui.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.marketplace.core.data.source.remote.request.LoginRequest
 import com.example.marketplace.databinding.ActivityLoginBinding
 import com.example.marketplace.util.Prefs
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -24,37 +25,23 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    fun setData(){
+    private fun setData(){
         viewModel.text.observe(this) {
             binding.edtEmail.setText(it)
         }
 
         binding.btnMasuk.setOnClickListener {
-            viewModel.ubahData()
+
+//            tangkap inputan
+            val email = binding.edtEmail.text.toString()
+            val password = binding.edtPassword.text.toString()
+
+            val body = LoginRequest(email, password)
+
+//          panggil function login
+            viewModel.login(body).observe(this) {
+
+            }
         }
     }
-
-    fun testing(){
-        //        panggil preverense
-//        var s = Prefs(this)
-//        if(s.getIsLogin()) {
-//            binding.tvStatus.text = "Sudah Login"
-//        }else{
-//            binding.tvStatus.text = "Belum Login"
-//        }
-
-//        tombol login
-//        binding.btnMasuk.setOnClickListener {
-//            s.setIsLogin(true) // status login true
-//            onBackPressed()
-//        }
-
-//        tombol logout
-//        binding.btnLogout.setOnClickListener {
-//            s.setIsLogin(false) // status login false
-//            onBackPressed()
-//        }
-    }
-
-
 }
