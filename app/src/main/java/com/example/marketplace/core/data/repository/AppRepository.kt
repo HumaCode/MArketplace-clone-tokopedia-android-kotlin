@@ -5,6 +5,7 @@ import com.example.marketplace.core.data.source.local.LocalDataSource
 import com.example.marketplace.core.data.source.remote.RemoteDataSource
 import com.example.marketplace.core.data.source.remote.network.Resource
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
+import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
 import kotlinx.coroutines.flow.flow
 
@@ -22,7 +23,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                     emit(Resource.success(body?.data))  // success
                     logs("Success : " + body.toString())
                 }else{
-                    emit(Resource.error(it.body()?.message ?: "Error default", null))
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Error default", null))
                     logs("Error : " + "keterangan error")
                 }
             }
