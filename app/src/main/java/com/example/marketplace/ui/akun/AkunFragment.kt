@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.marketplace.NavigationActivity
 import com.example.marketplace.databinding.FragmentAkunBinding
 import com.example.marketplace.util.Prefs
+import com.inyongtisto.myhelper.extension.getInitial
 import com.inyongtisto.myhelper.extension.pushActivity
 
 class AkunFragment : Fragment() {
@@ -47,6 +48,7 @@ class AkunFragment : Fragment() {
                 tvName.text = user.name
                 tvEmail.text = user.email
                 tvPhone.text = user.phone
+                inisial.text = user.name.getInitial()
             }
         }
     }

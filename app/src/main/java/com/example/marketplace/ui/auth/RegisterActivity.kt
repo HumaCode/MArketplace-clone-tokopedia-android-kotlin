@@ -59,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
             when (it.state) {
 //                jika success
                 State.SUCCESS -> {
-                    dismisLoading()
+//                    dismisLoading()
                     showToast("Akun berhasil dibuat ")
 
 //                    arahkan ke login activity
@@ -68,13 +68,13 @@ class RegisterActivity : AppCompatActivity() {
 
 //                jika error
                 State.ERROR -> {
-                    dismisLoading()
+//                    dismisLoading()
                     toastError(it.message ?: "Upszz error..")
                 }
 
 //                jika sedang loading
                 State.LOADING -> {
-                    showLoading()  // tampilkan proggress bar
+//                    showLoading()  // tampilkan proggress bar
                 }
             }
 

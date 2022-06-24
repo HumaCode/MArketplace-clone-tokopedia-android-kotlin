@@ -19,10 +19,37 @@
         tools:ignore="UselessParent"
         android:gravity="center_vertical">
 
-        <ImageView
+        <androidx.cardview.widget.CardView
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"
-            android:src="@drawable/ic_person"/>
+            app:cardCornerRadius="@dimen/_25sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/inisial"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/hz"
+                    android:gravity="center"
+                    android:textSize="@dimen/_25ssp"
+                    android:textStyle="bold"
+                    android:background="@color/colorPrimary_400"
+                    android:textColor="@color/white"/>
+
+                <ImageView
+                    android:id="@+id/image_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"

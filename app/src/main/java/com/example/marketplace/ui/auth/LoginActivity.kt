@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
             when (it.state) {
 //                jika success
                 State.SUCCESS -> {
-                    dismisLoading()
+//                    dismisLoading()
                     showToast("Selamat datang "+ it.data?.name)
 
 //                    arahkan ke navigation activity
@@ -69,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
 
 //                jika error
                 State.ERROR -> {
-                    dismisLoading()
+//                    dismisLoading()
                     toastError(it.message ?: "Upszz error..")
                 }
 
