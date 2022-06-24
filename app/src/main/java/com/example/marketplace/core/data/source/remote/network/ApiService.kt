@@ -1,6 +1,7 @@
 package com.example.marketplace.core.data.source.remote.network
 
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
+import com.example.marketplace.core.data.source.remote.request.RegisterRequest
 import com.example.marketplace.core.data.source.remote.response.LoginResponse
 import okhttp3.ResponseBody
 import retrofit2.Response
@@ -16,5 +17,6 @@ interface ApiService  {
 
     @POST("register")
     suspend fun register(
-    ): Response<ResponseBody>
+        @Body data: RegisterRequest
+    ): Response<LoginResponse>
 }

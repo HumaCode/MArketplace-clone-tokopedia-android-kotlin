@@ -1,67 +1,69 @@
-package com.example.marketplace.ui.login
+package com.example.marketplace.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.marketplace.NavigationActivity
 import com.example.marketplace.core.data.source.remote.network.State
-import com.example.marketplace.core.data.source.remote.request.LoginRequest
-import com.example.marketplace.databinding.ActivityLoginBinding
-import com.example.marketplace.util.Prefs
+import com.example.marketplace.core.data.source.remote.request.RegisterRequest
+import com.example.marketplace.databinding.ActivityRegisterBinding
 import com.inyongtisto.myhelper.extension.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LoginActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
-//    panggil viewModelLogin
-    private val viewModel : LoginViewModel by viewModel()
+//    panggil viewMode
+    private val viewModel : AuthViewModel by viewModel()
 
 
-    private var _binding: ActivityLoginBinding? = null
+    private var _binding: ActivityRegisterBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityLoginBinding.inflate(layoutInflater)
+        _binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-    setData()
+        mainButton()
 
     }
 
-    private fun setData(){
-        viewModel.text.observe(this) {
-            binding.edtEmail.setText(it)
+    private fun mainButton() {
+        binding.btnDaftar.setOnClickListener {
+            register()
         }
 
-        binding.btnMasuk.setOnClickListener {
-            login()
+        binding.btnLogin.setOnClickListener {
+            intentActivity(LoginActivity::class.java)
         }
     }
 
-//    function login
-    private fun login() {
+//    function register
+    private fun register() {
 //    validasi inputan tidak boleh kkosong
+        if(binding.edtName.isEmpty()) return
         if(binding.edtEmail.isEmpty()) return
+        if(binding.edtTelp.isEmpty()) return
         if(binding.edtPassword.isEmpty()) return
 
 
 //            tangkap inputan
+        val name = binding.edtName.text.toString()
         val email = binding.edtEmail.text.toString()
+        val phone = binding.edtTelp.text.toString()
         val password = binding.edtPassword.text.toString()
 
-        val body = LoginRequest(email, password)
+        val body = RegisterRequest(name, email, phone, password)
 
  //          panggil function login
-        viewModel.login(body).observe(this) {
+        viewModel.register(body).observe(this) {
 //            tampilkan pesan menggunakan state
             when (it.state) {
 //                jika success
                 State.SUCCESS -> {
                     dismisLoading()
-                    showToast("Selamat datang "+ it.data?.name)
+                    showToast("Akun berhasil dibuat ")
 
-//                    arahkan ke navigation activity
-                    pushActivity(NavigationActivity::class.java)
+//                    arahkan ke login activity
+                    pushActivity(LoginActivity::class.java)
                 }
 
 //                jika error

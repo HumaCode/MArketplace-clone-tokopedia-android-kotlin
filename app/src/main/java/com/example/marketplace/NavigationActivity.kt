@@ -7,10 +7,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.marketplace.databinding.ActivityNavigationBinding
-import com.example.marketplace.ui.login.LoginActivity
+import com.example.marketplace.ui.auth.LoginActivity
 import com.example.marketplace.util.Prefs
 
 class NavigationActivity : AppCompatActivity() {

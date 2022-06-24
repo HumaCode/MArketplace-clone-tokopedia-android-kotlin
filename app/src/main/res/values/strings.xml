@@ -17,4 +17,7 @@
     <string name="nama">Nama</string>
     <string name="no_tlp">No. Telepon</string>
     <string name="logout">Logout</string>
+    <string name="buat_akun">Buat Akun Baru!</string>
+    <string name="login">Login</string>
+    <string name="sudah_punya_akun">Sudah punya akun.?</string>
 </resources>

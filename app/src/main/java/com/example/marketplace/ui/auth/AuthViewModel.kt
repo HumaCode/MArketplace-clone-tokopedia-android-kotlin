@@ -1,4 +1,4 @@
-package com.example.marketplace.ui.login
+package com.example.marketplace.ui.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,18 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.example.marketplace.core.data.repository.AppRepository
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
+import com.example.marketplace.core.data.source.remote.request.RegisterRequest
 
-class LoginViewModel(val repo: AppRepository): ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "Ini halaman Login"
-    }
-    val text: LiveData<String> = _text
-
-    fun ubahData(){
-        _text.postValue("Data ini sudah saya rubah")
-    }
+class AuthViewModel(val repo: AppRepository): ViewModel() {
 
 //    function login
     fun login(data: LoginRequest) = repo.login(data).asLiveData()
+
+//    function login
+fun register(data: RegisterRequest) = repo.register(data).asLiveData()
 }

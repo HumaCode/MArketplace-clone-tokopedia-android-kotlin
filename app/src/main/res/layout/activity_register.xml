@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.auth.LoginActivity">
+    tools:context=".ui.auth.RegisterActivity">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -16,11 +16,27 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/silahkan_login"
+        android:text="@string/buat_akun"
         android:textSize="@dimen/_20ssp"
         android:layout_marginBottom="@dimen/_18sdp"
         android:textColor="@color/colorPrimary_400"
         android:textStyle="bold"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nama"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:inputType="text"
+            android:background="@color/white"
+            android:textSize="@dimen/_15ssp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -33,6 +49,22 @@
             android:hint="@string/email"
             android:layout_marginTop="@dimen/_15sdp"
             android:inputType="textEmailAddress"
+            android:background="@color/white"
+            android:textSize="@dimen/_15ssp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_telp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/no_tlp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:inputType="number"
             android:background="@color/white"
             android:textSize="@dimen/_15ssp"/>
 
@@ -55,66 +87,15 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/lupa_password"
-        android:layout_marginVertical="@dimen/_15sdp"
-        android:textColor="@color/colorPrimary"
-        android:layout_gravity="end"/>
-
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_masuk"
+        android:id="@+id/btn_daftar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
-        android:text="@string/masuk"
+        android:text="@string/daftar"
         android:textAllCaps="false"
-        android:textSize="@dimen/_15ssp"/>
+        android:textSize="@dimen/_15ssp"
+        android:layout_marginTop="@dimen/_25sdp"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/_15sdp">
-
-        <View
-            android:id="@+id/lineLeft"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#C6C6C6"
-            android:layout_toStartOf="@+id/text1"
-            android:layout_centerVertical="true"/>
-
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/masuk_dengan"
-            android:layout_centerInParent="true"
-            android:layout_marginHorizontal="@dimen/_10sdp"/>
-
-        <View
-            android:id="@+id/lineRight"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#C6C6C6"
-            android:layout_toEndOf="@+id/text1"
-            android:layout_centerVertical="true"/>
-
-
-    </RelativeLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
-        android:text="@string/google"
-        android:textAllCaps="false"
-        android:textColor="#838383"
-        style="@style/Button.OutlineBox"
-        app:icon="@drawable/ic_google"
-        app:iconSize="@dimen/_19sdp"
-        app:iconTint="@null"
-        android:textSize="@dimen/_15ssp"/>
-    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -125,14 +106,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/belum_punya_akun"
+            android:text="@string/sudah_punya_akun"
             android:layout_marginEnd="@dimen/_3sdp"/>
 
         <TextView
-            android:id="@+id/btn_daftar"
+            android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/daftar"
+            android:text="@string/login"
             android:textColor="@color/colorPrimary"/>
 
     </LinearLayout>
