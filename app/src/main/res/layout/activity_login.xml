@@ -17,6 +17,7 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
@@ -52,7 +53,7 @@
         android:layout_gravity="end"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_masuk"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
         android:text="@string/masuk"
@@ -111,7 +112,6 @@
         android:gravity="center_horizontal">
 
         <TextView
-            android:id="@+id/tvStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/belum_punya_akun"
