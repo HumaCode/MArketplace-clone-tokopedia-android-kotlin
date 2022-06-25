@@ -7,6 +7,7 @@
     tools:context=".ui.updateProfile.UpdateProfileActivity"
     android:orientation="vertical">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,12 +24,49 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        app:cardCornerRadius="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_gravity="center_horizontal"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/inisial"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/hz"
+                android:gravity="center"
+                android:textSize="@dimen/_35ssp"
+                android:textStyle="bold"
+                android:background="@color/colorPrimary_400"
+                android:textColor="@color/white"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FFFFFF"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/_15sdp"
-    tools:ignore="UselessParent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_15sdp"
+        tools:ignore="UselessParent"
+        android:layout_marginTop="@dimen/_5sdp">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"

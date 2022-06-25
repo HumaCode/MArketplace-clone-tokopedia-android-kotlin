@@ -71,5 +71,12 @@ dependencies {
 // shared preferences
     implementation "com.chibatching.kotpref:kotpref:2.13.1"
 
+// image picker
+    implementation 'com.github.Drjacky:ImagePicker:2.1.11'
 
+//    picasso
+    implementation 'com.squareup.picasso:picasso:2.8'
+
+//    circle Image
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

@@ -1,16 +1,18 @@
 package com.example.marketplace.ui.updateProfile
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.marketplace.NavigationActivity
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.marketplace.core.data.source.remote.network.State
-import com.example.marketplace.core.data.source.remote.request.RegisterRequest
 import com.example.marketplace.core.data.source.remote.request.UpdateProfileRequest
-import com.example.marketplace.databinding.ActivityRegisterBinding
 import com.example.marketplace.databinding.ActivityUpdateProfileBinding
 import com.example.marketplace.ui.auth.AuthViewModel
 import com.example.marketplace.util.Prefs
+import com.github.drjacky.imagepicker.ImagePicker
+import com.github.drjacky.imagepicker.constant.ImageProvider
 import com.inyongtisto.myhelper.extension.*
+import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UpdateProfileActivity : AppCompatActivity() {
@@ -44,18 +46,38 @@ class UpdateProfileActivity : AppCompatActivity() {
                 edtName.setText(user.name)
                 edtEmail.setText(user.email)
                 edtTelp.setText(user.phone)
+                inisial.text = user.name.getInitial()
             }
         }
     }
 
     private fun mainButton() {
         binding.btnSimpan.setOnClickListener {
-            register()
+            updateProfil()
+        }
+
+//        ketika foto di klik
+        binding.imageProfile.setOnClickListener {
+            picImage()
         }
     }
 
-//    function register
-    private fun register() {
+    private fun picImage() {
+        ImagePicker.with(this)
+            .maxResultSize(1080, 1080, true)
+            .createIntentFromDialog { launcher.launch(it) }
+    }
+
+    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            val uri = it.data?.data!!
+            // Use the uri to load the image / panggil picasso
+            Picasso.get().load(uri).into(binding.imageProfile)
+        }
+    }
+
+    //    function register
+    private fun updateProfil() {
 //    validasi inputan tidak boleh kkosong
         if(binding.edtName.isEmpty()) return
         if(binding.edtEmail.isEmpty()) return
