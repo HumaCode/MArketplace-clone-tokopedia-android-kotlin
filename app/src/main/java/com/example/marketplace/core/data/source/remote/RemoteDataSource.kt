@@ -4,6 +4,7 @@ import com.example.marketplace.core.data.source.remote.network.ApiService
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
 import com.example.marketplace.core.data.source.remote.request.RegisterRequest
 import com.example.marketplace.core.data.source.remote.request.UpdateProfileRequest
+import okhttp3.MultipartBody
 
 class RemoteDataSource(private val api: ApiService) {
 //    login
@@ -14,5 +15,8 @@ class RemoteDataSource(private val api: ApiService) {
 
 //    update profil
     suspend fun updateUser(data: UpdateProfileRequest) = api.updateUser(data.id, data)
+
+//    upload profil
+    suspend fun uploadUser(id: Int? = null, fileImage: MultipartBody.Part? = null) = api.uploadUser(id, fileImage)
 
 }

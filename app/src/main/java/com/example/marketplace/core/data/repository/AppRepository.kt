@@ -11,6 +11,7 @@ import com.example.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
 import kotlinx.coroutines.flow.flow
+import okhttp3.MultipartBody
 
 class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
 
@@ -64,14 +65,34 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
     }
 }
 
-
-//    function register
+//    function update profil
     fun updateUser(data: UpdateProfileRequest) = flow {
 //        state loading
         emit(Resource.loading(null))
 
         try {
             remote.updateUser(data).let {
+                if(it.isSuccessful) {
+                    val body = it.body()
+                    val user = body?.data  // menampng data user login
+                    Prefs.setUser(user)  // mengambil data user
+                    emit(Resource.success(user))  // success
+                }else{
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Error default", null))
+                }
+            }
+        }catch (e:Exception){
+            emit(Resource.error(e.message?: "Login gagal", null))
+        }
+    }
+
+    //    function upload foto user
+    fun uploadUser(id: Int? = null, fileImage: MultipartBody.Part? = null) = flow {
+//        state loading
+        emit(Resource.loading(null))
+
+        try {
+            remote.uploadUser(id, fileImage).let {
                 if(it.isSuccessful) {
                     val body = it.body()
                     val user = body?.data  // menampng data user login

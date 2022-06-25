@@ -8,6 +8,7 @@ import com.example.marketplace.core.data.repository.AppRepository
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
 import com.example.marketplace.core.data.source.remote.request.RegisterRequest
 import com.example.marketplace.core.data.source.remote.request.UpdateProfileRequest
+import okhttp3.MultipartBody
 
 class AuthViewModel(val repo: AppRepository): ViewModel() {
 
@@ -17,6 +18,9 @@ class AuthViewModel(val repo: AppRepository): ViewModel() {
 //    function login
     fun register(data: RegisterRequest) = repo.register(data).asLiveData()
 
-//    function login
+//    function update profil
     fun updateUser(data: UpdateProfileRequest) = repo.updateUser(data).asLiveData()
+
+//    function upload foto profil
+    fun uploadUser(id: Int? = null, fileImage: MultipartBody.Part? = null) = repo.uploadUser(id, fileImage).asLiveData()
 }

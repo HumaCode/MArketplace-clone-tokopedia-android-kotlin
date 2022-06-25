@@ -39,7 +39,7 @@
                     android:background="@color/colorPrimary_400"
                     android:textColor="@color/white"/>
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/image_profile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>

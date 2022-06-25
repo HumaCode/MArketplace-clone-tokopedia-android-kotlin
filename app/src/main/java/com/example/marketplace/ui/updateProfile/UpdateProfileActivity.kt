@@ -8,12 +8,13 @@ import com.example.marketplace.core.data.source.remote.network.State
 import com.example.marketplace.core.data.source.remote.request.UpdateProfileRequest
 import com.example.marketplace.databinding.ActivityUpdateProfileBinding
 import com.example.marketplace.ui.auth.AuthViewModel
+import com.example.marketplace.util.Constants
 import com.example.marketplace.util.Prefs
 import com.github.drjacky.imagepicker.ImagePicker
-import com.github.drjacky.imagepicker.constant.ImageProvider
 import com.inyongtisto.myhelper.extension.*
 import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.io.File
 
 class UpdateProfileActivity : AppCompatActivity() {
 
@@ -23,6 +24,7 @@ class UpdateProfileActivity : AppCompatActivity() {
 
     private var _binding: ActivityUpdateProfileBinding? = null
     private val binding get() = _binding!!
+    private var fileImage: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,13 +49,22 @@ class UpdateProfileActivity : AppCompatActivity() {
                 edtEmail.setText(user.email)
                 edtTelp.setText(user.phone)
                 inisial.text = user.name.getInitial()
+
+//                menampilkan gambar/foto user
+                Picasso.get().load(Constants.USER_URL + user.image).into(binding.imageProfile)
             }
         }
     }
 
     private fun mainButton() {
         binding.btnSimpan.setOnClickListener {
-            updateProfil()
+
+//            cek file
+            if(fileImage != null) {
+                upload()
+            }else{
+                updateProfil()
+            }
         }
 
 //        ketika foto di klik
@@ -64,6 +75,7 @@ class UpdateProfileActivity : AppCompatActivity() {
 
     private fun picImage() {
         ImagePicker.with(this)
+            .crop()
             .maxResultSize(1080, 1080, true)
             .createIntentFromDialog { launcher.launch(it) }
     }
@@ -71,12 +83,14 @@ class UpdateProfileActivity : AppCompatActivity() {
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             val uri = it.data?.data!!
+            fileImage = File(uri.path ?: "")  // dapatkan file nya
             // Use the uri to load the image / panggil picasso
             Picasso.get().load(uri).into(binding.imageProfile)
+//            upload()  // upload file nya
         }
     }
 
-    //    function register
+    //    function update
     private fun updateProfil() {
 //    validasi inputan tidak boleh kkosong
         if(binding.edtName.isEmpty()) return
@@ -116,9 +130,36 @@ class UpdateProfileActivity : AppCompatActivity() {
 //                    showLoading()  // tampilkan proggress bar
                 }
             }
+        }
+    }
 
+    private fun upload(){
+//        id user
+        val id = Prefs.getUser()?.id
+        val file = fileImage.toMultipartBody() // konversi dari uri ke path
 
+//          panggil function upload foto profil
+        viewModel.uploadUser(id, file).observe(this) {
+//            tampilkan pesan menggunakan state
+            when (it.state) {
+//                jika success
+                State.SUCCESS -> {
+//                    dismisLoading()
+                    showToast("Data berhasil diubah ")
+                    updateProfil()
+                }
 
+//                jika error
+                State.ERROR -> {
+//                    dismisLoading()
+                    toastError(it.message ?: "Upszz error..")
+                }
+
+//                jika sedang loading
+                State.LOADING -> {
+//                    showLoading()  // tampilkan proggress bar
+                }
+            }
         }
     }
 
