@@ -6,6 +6,7 @@ import com.example.marketplace.core.data.source.remote.RemoteDataSource
 import com.example.marketplace.core.data.source.remote.network.Resource
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
 import com.example.marketplace.core.data.source.remote.request.RegisterRequest
+import com.example.marketplace.core.data.source.remote.request.UpdateProfileRequest
 import com.example.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
@@ -39,7 +40,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
     }
 
 //    function register
-fun register(data: RegisterRequest) = flow {
+    fun register(data: RegisterRequest) = flow {
 //        state loading
     emit(Resource.loading(null))
 
@@ -63,4 +64,25 @@ fun register(data: RegisterRequest) = flow {
     }
 }
 
+
+//    function register
+    fun updateUser(data: UpdateProfileRequest) = flow {
+//        state loading
+        emit(Resource.loading(null))
+
+        try {
+            remote.updateUser(data).let {
+                if(it.isSuccessful) {
+                    val body = it.body()
+                    val user = body?.data  // menampng data user login
+                    Prefs.setUser(user)  // mengambil data user
+                    emit(Resource.success(user))  // success
+                }else{
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Error default", null))
+                }
+            }
+        }catch (e:Exception){
+            emit(Resource.error(e.message?: "Login gagal", null))
+        }
+    }
 }

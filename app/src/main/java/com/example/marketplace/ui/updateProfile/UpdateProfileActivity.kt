@@ -63,41 +63,41 @@ class UpdateProfileActivity : AppCompatActivity() {
 
 
 //            tangkap inputan
-        val id = 1
+        val id = Prefs.getUser()?.id
         val name = binding.edtName.text.toString()
         val email = binding.edtEmail.text.toString()
         val phone = binding.edtTelp.text.toString()
 
-        val body = UpdateProfileRequest(id, name, email, phone)
+        val body = UpdateProfileRequest(id.int(), name, email, phone)
 
- //          panggil function login
-//        viewModel.register(body).observe(this) {
-////            tampilkan pesan menggunakan state
-//            when (it.state) {
-////                jika success
-//                State.SUCCESS -> {
-////                    dismisLoading()
-//                    showToast("Akun berhasil dibuat ")
-//
-////                    arahkan ke navigation activity
-//                    pushActivity(NavigationActivity::class.java)
-//                }
-//
-////                jika error
-//                State.ERROR -> {
-////                    dismisLoading()
-//                    toastError(it.message ?: "Upszz error..")
-//                }
-//
-////                jika sedang loading
-//                State.LOADING -> {
-////                    showLoading()  // tampilkan proggress bar
-//                }
-//            }
-//
-//
-//
-//        }
+ //          panggil function update profil
+        viewModel.updateUser(body).observe(this) {
+//            tampilkan pesan menggunakan state
+            when (it.state) {
+//                jika success
+                State.SUCCESS -> {
+//                    dismisLoading()
+                    showToast("Data berhasil diubah ")
+
+//                    kembalikan ke activity sebelumnya
+                    onBackPressed()
+                }
+
+//                jika error
+                State.ERROR -> {
+//                    dismisLoading()
+                    toastError(it.message ?: "Upszz error..")
+                }
+
+//                jika sedang loading
+                State.LOADING -> {
+//                    showLoading()  // tampilkan proggress bar
+                }
+            }
+
+
+
+        }
     }
 
 //    tombol back
