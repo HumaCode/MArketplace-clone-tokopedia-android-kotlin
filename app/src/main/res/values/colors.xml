@@ -23,4 +23,12 @@
     <color name="colorPrimary_600">#009d00</color>
     <color name="colorPrimary_700">#008b00</color>
     <color name="colorPrimary_800">#007b00</color>
+
+    <color name="yellowSoft">#FFC107</color>
+    <color name="greenSoft">#00B608</color>
+    <color name="pinkSoft">#FF387C</color>
+
+    <color name="yellowSoftSecondary">#FFF3CE</color>
+    <color name="greenSoftSecondary">#C6FFC9</color>
+    <color name="pinkSoftSecondary">#FFDFEA</color>
 </resources>

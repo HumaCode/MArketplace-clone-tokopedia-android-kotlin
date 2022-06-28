@@ -31,11 +31,12 @@
     <string name="kategori">Nama Kategori</string>
     <string name="terlaris">Terlaris</string>
     <string name="nama_produk">Nama Produk</string>
-    <string name="rp_10_000">Rp. 10.000</string>
+    <string name="harga">Rp. 10.000</string>
     <string name="grosir">Grosir</string>
     <string name="pekalongan">Pekalongan</string>
     <string name="rating">5.0 | Terjual 5 kali</string>
     <string name="produk_terlaris">Terlaris Hari Ini</string>
     <string name="lihat_semua">Lihat Semua</string>
     <string name="produk_terbaru">Produk Terbaru</string>
+    <string name="diskon">10%</string>
 </resources>

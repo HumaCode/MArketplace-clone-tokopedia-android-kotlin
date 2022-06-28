@@ -11,9 +11,10 @@
     app:cardCornerRadius="@dimen/_15sdp">
 
     <ImageView
+        android:id="@+id/image_view"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_135sdp"
         android:src="@drawable/asset_slider1"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop" />
 
 </com.google.android.material.card.MaterialCardView>

@@ -7,40 +7,67 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.marketplace.databinding.FragmentHomeBinding
+import com.example.marketplace.ui.home.adapter.CategoryAdapter
+import com.example.marketplace.ui.home.adapter.ProductTerbaruAdapter
+import com.example.marketplace.ui.home.adapter.ProductTerlarisAdapter
+import com.example.marketplace.ui.home.adapter.SliderAdapter
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var viewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val adapterCategory = CategoryAdapter()
+    private val adapterSlider = SliderAdapter()
+    private val adapterProdukTerlaris = ProductTerlarisAdapter()
+    private val adapterProdukTerbaru = ProductTerbaruAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        homeViewModel =
+        viewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        setData()
+        setupAdapter()
+        setData()
 //        getData()
         return root
     }
 
+//    memanggil adapter
+    private fun setupAdapter() {
+        binding.rvCategory.adapter = adapterCategory
+        binding.rvSlider.adapter = adapterSlider
+        binding.rvProdukTerlaris.adapter = adapterProdukTerlaris
+        binding.rvProdukTerbaru.adapter = adapterProdukTerbaru
+    }
+
     private fun setData() {
-        homeViewModel.text.observe(viewLifecycleOwner) {
-//            binding.tvSelamat.text = it
+//        category
+        viewModel.listCategory.observe(requireActivity()) {
+            adapterCategory.addItems(it)
+        }
+
+//        slider
+        viewModel.listSlider.observe(requireActivity()) {
+            adapterSlider.addItems(it)
+        }
+
+//        produk
+        viewModel.listProduk.observe(requireActivity()) {
+            adapterProdukTerlaris.addItems(it)
+            adapterProdukTerbaru.addItems(it)
         }
     }
 
 
     private fun getData(){
-//        binding.btnKlik.setOnClickListener {
-//           homeViewModel.ubahData()
-//        }
+
     }
 
     override fun onDestroyView() {
