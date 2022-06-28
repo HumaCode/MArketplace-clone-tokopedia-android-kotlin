@@ -21,4 +21,21 @@
     <string name="login">Login</string>
     <string name="sudah_punya_akun">Sudah punya akun.?</string>
     <string name="hz">Hz</string>
+    <string name="cari_produk">Pencarian Produk</string>
+    <string name="gopay">Rp. 0</string>
+    <string name="coin">0 Coin</string>
+    <string name="member">Member Gold</string>
+    <string name="_1_kupon_baru">1 Kupon Baru</string>
+    <string name="rumah_saya">Rumah Saya</string>
+    <string name="dikirim_ke">Dikirim Ke</string>
+    <string name="kategori">Nama Kategori</string>
+    <string name="terlaris">Terlaris</string>
+    <string name="nama_produk">Nama Produk</string>
+    <string name="rp_10_000">Rp. 10.000</string>
+    <string name="grosir">Grosir</string>
+    <string name="pekalongan">Pekalongan</string>
+    <string name="rating">5.0 | Terjual 5 kali</string>
+    <string name="produk_terlaris">Terlaris Hari Ini</string>
+    <string name="lihat_semua">Lihat Semua</string>
+    <string name="produk_terbaru">Produk Terbaru</string>
 </resources>

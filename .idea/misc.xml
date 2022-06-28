@@ -11,9 +11,15 @@
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/activity_update_profile.xml" value="0.33" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/fragment_akun.xml" value="0.33" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/fragment_dashboard.xml" value="0.20416666666666666" />
-        <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/fragment_home.xml" value="0.22209631728045326" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/fragment_keranjang.xml" value="0.20416666666666666" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/fragment_notifications.xml" value="0.18" />
+        <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/item_home_category.xml" value="0.20416666666666666" />
+        <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/item_home_produk_terbaru.xml" value="0.20416666666666666" />
+        <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/item_home_produk_terlaris.xml" value="0.25" />
+        <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/item_home_slider.xml" value="0.20416666666666666" />
+        <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/layout_home_member.xml" value="0.20416666666666666" />
+        <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/layout_home_toolbar.xml" value="0.20416666666666666" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/xml/network_security.xml" value="0.20416666666666666" />
       </map>

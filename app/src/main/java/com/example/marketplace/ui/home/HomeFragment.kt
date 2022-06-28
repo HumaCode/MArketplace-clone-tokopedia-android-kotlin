@@ -25,22 +25,22 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        setData()
-        getData()
+//        setData()
+//        getData()
         return root
     }
 
     private fun setData() {
         homeViewModel.text.observe(viewLifecycleOwner) {
-            binding.tvSelamat.text = it
+//            binding.tvSelamat.text = it
         }
     }
 
 
     private fun getData(){
-        binding.btnKlik.setOnClickListener {
-           homeViewModel.ubahData()
-        }
+//        binding.btnKlik.setOnClickListener {
+//           homeViewModel.ubahData()
+//        }
     }
 
     override fun onDestroyView() {
