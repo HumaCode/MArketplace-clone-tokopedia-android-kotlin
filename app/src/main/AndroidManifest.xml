@@ -37,6 +37,8 @@
             android:exported="false"/>
         <activity android:name=".ui.auth.RegisterActivity" />
         <activity android:name=".ui.updateProfile.UpdateProfileActivity" />
+        <activity android:name=".ui.toko.BukaTokoActivity" />
+        <activity android:name=".ui.toko.TokoSayaActivity" />
     </application>
 
 </manifest>

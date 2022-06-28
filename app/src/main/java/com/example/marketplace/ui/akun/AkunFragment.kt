@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.marketplace.NavigationActivity
 import com.example.marketplace.databinding.FragmentAkunBinding
+import com.example.marketplace.ui.toko.BukaTokoActivity
 import com.example.marketplace.ui.updateProfile.UpdateProfileActivity
 import com.example.marketplace.util.Constants.USER_URL
 import com.example.marketplace.util.Prefs
@@ -50,6 +51,10 @@ class AkunFragment : Fragment() {
 
         binding.btnUpdate.setOnClickListener {
             intentActivity(UpdateProfileActivity::class.java)
+        }
+
+        binding.btnToko.setOnClickListener {
+            intentActivity(BukaTokoActivity::class.java)
         }
     }
 

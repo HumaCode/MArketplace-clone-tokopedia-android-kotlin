@@ -39,4 +39,15 @@
     <string name="lihat_semua">Lihat Semua</string>
     <string name="produk_terbaru">Produk Terbaru</string>
     <string name="diskon">10%</string>
+    <string name="mulai_bisnis">Mau Memulai Berbisnis.?</string>
+    <string name="buka_toko">Buka Toko Gratis</string>
+    <string name="info_toko">Masukan Informasi Toko</string>
+    <string name="nama_mudah_diingat">Nama yang menarik lebih diingat oleh pembeli / Nama yang sudah disimpan tidak dapat diubah</string>
+    <string name="apa_nama_tokomu">Apa Nama Tokomu.?</string>
+    <string name="lokasi_toko">Lokasi Toko</string>
+    <string name="lokasi">Lokasi toko memudahkan pembeli agar mengetahui dari mana barang dikirim</string>
+    <string name="buat_toko">Buat Toko</string>
+    <string name="transaksi_sejak_bergabung">Transaksi sejak bergabung</string>
+    <string name="jml_transaksi">0/100</string>
+    <string name="skor_toko">Skor performa toko</string>
 </resources>

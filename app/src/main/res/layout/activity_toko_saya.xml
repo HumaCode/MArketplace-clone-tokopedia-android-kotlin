@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.akun.AkunFragment"
-    android:padding="@dimen/_15sdp"
+    tools:context=".ui.toko.TokoSayaActivity"
     android:orientation="vertical">
+
+    <include
+        android:id="@+id/ly_toolbar"
+        layout="@layout/layout_toolbar"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp">
 
         <LinearLayout
         android:layout_width="match_parent"
@@ -59,7 +63,7 @@
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/nama"
+                android:text="@string/apa_nama_tokomu"
                 android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
                 android:textColor="@color/dark"/>
@@ -68,42 +72,34 @@
                 android:id="@+id/tv_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/no_tlp"
+                android:text="@string/harga"
                 android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/tv_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/email"
-                android:textSize="@dimen/_12ssp"
-                android:textStyle="bold"/>
 
         </LinearLayout>
 
-
     </LinearLayout>
-
-        <ImageView
-            android:id="@+id/btn_update"
-            style="@style/image_clickable"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_edit" />
-
 
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/skor_toko"
+        android:layout_marginEnd="@dimen/_3sdp"
+        android:textColor="@color/dark"
+        android:textSize="@dimen/_11ssp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/btn_toko"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Button.OutlineBox"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         app:cardElevation="0dp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         app:cardCornerRadius="@dimen/_5sdp">
 
         <RelativeLayout
@@ -121,39 +117,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/mulai_bisnis"
+                    android:text="@string/transaksi_sejak_bergabung"
                     android:layout_marginEnd="@dimen/_3sdp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/dark"
                     android:textSize="@dimen/_12ssp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/buka_toko"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_12ssp"/>
 
             </LinearLayout>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="@dimen/_15sdp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_arrow"
+                android:text="@string/jml_transaksi"
+                android:textColor="@color/dark"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
                 android:layout_alignParentEnd="true"/>
 
         </RelativeLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
-    <TextView
-        android:id="@+id/btn_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logout"
-        android:textSize="@dimen/_25ssp"
-        android:layout_gravity="center"
-        android:layout_marginVertical="@dimen/_20sdp"/>
 
 
 </LinearLayout>
