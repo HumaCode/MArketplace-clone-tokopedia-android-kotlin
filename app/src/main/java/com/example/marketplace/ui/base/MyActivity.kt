@@ -1,4 +1,5 @@
 package com.example.marketplace.ui.base
 
-class MyActivity {
-}
+import com.inyongtisto.myhelper.base.CustomeActivity
+
+abstract class MyActivity : CustomeActivity()

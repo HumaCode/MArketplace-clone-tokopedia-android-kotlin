@@ -90,16 +90,16 @@
         android:layout_marginEnd="@dimen/_3sdp"
         android:textColor="@color/dark"
         android:textSize="@dimen/_11ssp"
-        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_10sdp"/>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Button.OutlineBox"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         app:cardElevation="0dp"
-        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
         app:cardCornerRadius="@dimen/_5sdp">
 
         <RelativeLayout
@@ -138,6 +138,53 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_5sdp"
+        android:background="#EDEDED"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_10sdp"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/apa_nama_tokomu"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@color/grey"
+            android:textAppearance="@style/TypographyStyles.Text2.Bold"
+            android:layout_marginHorizontal="@dimen/_15sdp"/>
+
+        <LinearLayout
+            android:id="@+id/btn_alamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/_6sdp"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
+            style="@style/layout_clickable">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_lokssi"
+                app:tint="@color/grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pilih_alamat"
+                android:textAppearance="@style/TypographyStyles.Text2"
+                android:layout_marginStart="@dimen/_8sdp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

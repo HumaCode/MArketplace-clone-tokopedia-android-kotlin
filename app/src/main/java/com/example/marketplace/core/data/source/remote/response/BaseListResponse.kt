@@ -1,8 +1,8 @@
 package com.example.marketplace.core.data.source.remote.response
 
 
-data class BaseResponse<T>(
+data class BaseListResponse<T>(
     val code: Int? = null,
     val message: String? = null,
-    val data: T? = null
+    val data: List<T> = emptyList()
 )

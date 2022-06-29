@@ -50,4 +50,9 @@
     <string name="transaksi_sejak_bergabung">Transaksi sejak bergabung</string>
     <string name="jml_transaksi">0/100</string>
     <string name="skor_toko">Skor performa toko</string>
+    <string name="pilih_alamat">Pilih Alamat</string>
+    <string name="kajen">Kajen</string>
+    <string name="alamat_saya">Jl. Pahlawan No. 10 Bandungan wetan kajen rt 11 rw 03 kec. Kajen, kel. Kajen, kab. Pekalongan</string>
+    <string name="nomer">082324118691</string>
+    <string name="data_tidak_ditemukan">Data tidak ditemukan</string>
 </resources>

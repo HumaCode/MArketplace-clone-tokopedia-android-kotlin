@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:ignore="UseCompoundDrawables"
+    android:layout_marginVertical="@dimen/_8sdp"
+    android:layout_marginHorizontal="@dimen/_3sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_8sdp"
+        tools:ignore="UselessParent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_kota"
+                android:textAppearance="@style/TypographyStyles.Text2.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kajen"
+                android:layout_centerVertical="true"
+                tools:ignore="RelativeOverlap" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_more"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_alamat"
+            android:textAppearance="@style/TypographyStyles.Text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alamat_saya"
+            android:textColor="@color/grey"
+            tools:ignore="RelativeOverlap"
+            android:layout_marginTop="@dimen/_8sdp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:background="#E4E4E4"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nomer"
+            android:drawableStart="@drawable/ic_phone2"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TypographyStyles.Text3"
+            android:textColor="@color/grey"
+            android:drawableTint="@color/grey"
+            android:drawablePadding="@dimen/_8sdp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:background="#E4E4E4"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:drawableStart="@drawable/ic_mail2"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TypographyStyles.Text3"
+            android:textColor="@color/grey"
+            android:drawableTint="@color/grey"
+            android:drawablePadding="@dimen/_8sdp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

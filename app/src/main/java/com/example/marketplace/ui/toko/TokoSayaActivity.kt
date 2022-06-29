@@ -3,11 +3,12 @@ package com.example.marketplace.ui.toko
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.marketplace.databinding.ActivityTokoSayaBinding
+import com.example.marketplace.ui.alamatToko.ListAlamatTokoActivity
 import com.example.marketplace.util.Constants
 import com.example.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getInitial
+import com.inyongtisto.myhelper.extension.intentActivity
 import com.inyongtisto.myhelper.extension.setToolbar
-import com.inyongtisto.myhelper.extension.toGone
 import com.squareup.picasso.Picasso
 
 class TokoSayaActivity : AppCompatActivity() {
@@ -23,7 +24,7 @@ class TokoSayaActivity : AppCompatActivity() {
 //        toolbar
         setToolbar(binding.lyToolbar.toolbar, "Toko Saya")
 
-        mainButton()
+        setupListener()
         setData()
 
     }
@@ -48,7 +49,12 @@ class TokoSayaActivity : AppCompatActivity() {
     }
 
 
-    private fun mainButton() {
+    private fun setupListener() {
+        binding.apply {
+            btnAlamat.setOnClickListener {
+                intentActivity(ListAlamatTokoActivity::class.java)
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

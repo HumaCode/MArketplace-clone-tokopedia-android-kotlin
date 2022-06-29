@@ -5,6 +5,7 @@ import com.example.marketplace.core.data.source.remote.request.CreateTokoRequest
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
 import com.example.marketplace.core.data.source.remote.request.RegisterRequest
 import com.example.marketplace.core.data.source.remote.request.UpdateProfileRequest
+import com.example.marketplace.util.getTokoId
 import okhttp3.MultipartBody
 
 class RemoteDataSource(private val api: ApiService) {
@@ -25,4 +26,7 @@ class RemoteDataSource(private val api: ApiService) {
 
 //    cek toko
     suspend fun getUser(id: Int? = null) = api.getUser(id)
+
+//    alamat toko
+    suspend fun getAlamatToko() = api.getAlamatToko(getTokoId())
 }

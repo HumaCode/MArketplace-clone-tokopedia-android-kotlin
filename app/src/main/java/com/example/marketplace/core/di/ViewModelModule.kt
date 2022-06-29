@@ -1,5 +1,6 @@
 package com.example.marketplace.core.di
 
+import com.example.marketplace.ui.alamatToko.AlamatTokoViewModel
 import com.example.marketplace.ui.auth.AuthViewModel
 import com.example.marketplace.ui.navigation.NavViewModel
 import com.example.marketplace.ui.toko.TokoViewModel
@@ -16,4 +17,7 @@ val viewModelModule = module {
 
 //    daftarkan view model dari login
     viewModel { NavViewModel(get()) }
+
+//    daftarkan view model dari alamat
+    viewModel { AlamatTokoViewModel(get()) }
 }

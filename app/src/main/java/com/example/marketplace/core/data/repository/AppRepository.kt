@@ -150,4 +150,24 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
             emit(Resource.error(e.message?: "User tidak ditemukan", null))
         }
     }
+
+    //    function cek toko user
+    fun getAlamatToko() = flow {
+//        state loading
+        emit(Resource.loading(null))
+
+        try {
+            remote.getAlamatToko().let {
+                if(it.isSuccessful) {
+                    val body = it.body()
+                    val data = body?.data  // menampng data alamat toko
+                    emit(Resource.success(data))  // success
+                }else{
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Error default", null))
+                }
+            }
+        }catch (e:Exception){
+            emit(Resource.error(e.message?: "Alamat toko tidak ditemukan", null))
+        }
+    }
 }

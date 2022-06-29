@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/drawable/ic_mail2.xml" value="0.115" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/activity_akun.xml" value="0.20416666666666666" />
+        <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/activity_alamat_list.xml" value="0.25" />
+        <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/activity_alamat_toko_list.xml" value="0.22" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/activity_buka_toko.xml" value="0.25" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/activity_login.xml" value="0.22427440633245382" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
@@ -16,6 +19,7 @@
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/fragment_home.xml" value="0.22209631728045326" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/fragment_keranjang.xml" value="0.20416666666666666" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/fragment_notifications.xml" value="0.18" />
+        <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/item_alamat_toko.xml" value="0.22" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/item_home_category.xml" value="0.20416666666666666" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/item_home_produk_terbaru.xml" value="0.20416666666666666" />
         <entry key="..\:/Pemrograman/Android/Marketplace/app/src/main/res/layout/item_home_produk_terlaris.xml" value="0.44390243902439025" />

@@ -1,14 +1,15 @@
 package com.example.marketplace.core.data.source.remote.network
 
+import com.example.marketplace.core.data.source.model.AlamatToko
 import com.example.marketplace.core.data.source.remote.request.CreateTokoRequest
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
 import com.example.marketplace.core.data.source.remote.request.RegisterRequest
 import com.example.marketplace.core.data.source.remote.request.UpdateProfileRequest
-import com.example.marketplace.core.data.source.remote.response.BaseResponse
+import com.example.marketplace.core.data.source.remote.response.BaseListResponse
+import com.example.marketplace.core.data.source.remote.response.BaseSingleResponse
 import com.example.marketplace.core.data.source.remote.response.LoginResponse
 import com.example.marketplace.core.data.source.remote.response.TokoResponse
 import okhttp3.MultipartBody
-import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -45,12 +46,17 @@ interface ApiService  {
     @POST("toko")
     suspend fun createToko(
         @Body data: CreateTokoRequest
-    ): Response<BaseResponse<TokoResponse>>
-
+    ): Response<BaseSingleResponse<TokoResponse>>
 
 //    API cek toko
     @GET("toko-user/{id}")
     suspend fun getUser(
         @Path("id") int: Int? = null,
     ): Response<LoginResponse>
+
+    //    API mendapatkan alamat
+    @GET("alamat-toko/{id}")
+    suspend fun getAlamatToko(
+        @Path("id") idToko: Int? = null,
+    ): Response<BaseListResponse<AlamatToko>>
 }
