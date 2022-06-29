@@ -2,7 +2,7 @@ package com.example.marketplace.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.marketplace.NavigationActivity
+import com.example.marketplace.ui.navigation.NavigationActivity
 import com.example.marketplace.core.data.source.remote.network.State
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
 import com.example.marketplace.databinding.ActivityLoginBinding

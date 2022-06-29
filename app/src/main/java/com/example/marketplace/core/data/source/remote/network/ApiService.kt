@@ -46,4 +46,11 @@ interface ApiService  {
     suspend fun createToko(
         @Body data: CreateTokoRequest
     ): Response<BaseResponse<TokoResponse>>
+
+
+//    API cek toko
+    @GET("toko-user/{id}")
+    suspend fun getUser(
+        @Path("id") int: Int? = null,
+    ): Response<LoginResponse>
 }

@@ -60,7 +60,7 @@
             android:layout_marginStart="@dimen/_10sdp">
 
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/tv_nama_toko"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/apa_nama_tokomu"
