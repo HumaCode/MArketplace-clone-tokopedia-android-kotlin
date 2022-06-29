@@ -73,7 +73,7 @@ class AkunFragment : Fragment() {
 //                cek toko user
                 if(user.toko != null) {
                     tvStatusToko.toGone()
-                    tvNamaToko.text = user.toko.name
+                    tvNamaToko.text = user.toko?.name
 
                     binding.btnToko.setOnClickListener {
                         intentActivity(TokoSayaActivity::class.java)

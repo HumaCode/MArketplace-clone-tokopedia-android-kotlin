@@ -2,6 +2,7 @@ package com.example.marketplace.ui.toko
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.marketplace.core.data.source.model.Toko
 import com.example.marketplace.core.data.source.remote.network.State
 import com.example.marketplace.core.data.source.remote.request.CreateTokoRequest
 import com.example.marketplace.databinding.ActivityBukaTokoBinding
@@ -54,6 +55,19 @@ class BukaTokoActivity : AppCompatActivity() {
 
 //                    arahkan ke toko saya activity
                     intentActivity(TokoSayaActivity::class.java)
+
+//                    memperbaharui data toko
+                    val user = Prefs.getUser()
+                    user?.toko = Toko(
+                        id = data?.id,
+                        name = data?.name,
+                        kota = data?.kota,
+                    )
+
+//                    update ulang prefs nya
+                    Prefs.setUser(user)
+
+                    finish()
                 }
 
 //                jika error

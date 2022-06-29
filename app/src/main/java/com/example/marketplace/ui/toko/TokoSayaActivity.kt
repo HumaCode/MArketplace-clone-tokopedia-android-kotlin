@@ -36,12 +36,12 @@ class TokoSayaActivity : AppCompatActivity() {
 
 //                cek toko user
                 if(user.toko != null) {
-                    tvNamaToko.text = user.toko.name
+                    tvNamaToko.text = user.toko?.name
 
-                    inisial.text = user.toko.name.getInitial()
+                    inisial.text = user.toko?.name.getInitial()
 
 //                menampilkan gambar/foto user
-                    Picasso.get().load(Constants.USER_URL + user.toko.image).into(binding.imageProfile)
+                    Picasso.get().load(Constants.USER_URL + user.toko?.image).into(binding.imageProfile)
                 }
             }
         }
