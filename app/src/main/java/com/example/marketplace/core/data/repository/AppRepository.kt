@@ -4,6 +4,7 @@ package com.example.marketplace.core.data.repository
 import com.example.marketplace.core.data.source.local.LocalDataSource
 import com.example.marketplace.core.data.source.remote.RemoteDataSource
 import com.example.marketplace.core.data.source.remote.network.Resource
+import com.example.marketplace.core.data.source.remote.request.CreateTokoRequest
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
 import com.example.marketplace.core.data.source.remote.request.RegisterRequest
 import com.example.marketplace.core.data.source.remote.request.UpdateProfileRequest
@@ -45,25 +46,25 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
 //        state loading
     emit(Resource.loading(null))
 
-    try {
-        remote.register(data).let {
-            if(it.isSuccessful) {
-//                Prefs.isLogin = false  // ubah status login menjadi false
-                val body = it.body()
-                val user = body?.data  // menampng data user login
-//                Prefs.setUser(user)  // mengambil data user
-                emit(Resource.success(user))  // success
-                logs("Success : " + body.toString())
-            }else{
-                emit(Resource.error(it.getErrorBody()?.message ?: "Error default", null))
-                logs("Error : " + "keterangan error")
+        try {
+            remote.register(data).let {
+                if(it.isSuccessful) {
+    //                Prefs.isLogin = false  // ubah status login menjadi false
+                    val body = it.body()
+                    val user = body?.data  // menampng data user login
+    //                Prefs.setUser(user)  // mengambil data user
+                    emit(Resource.success(user))  // success
+                    logs("Success : " + body.toString())
+                }else{
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Error default", null))
+                    logs("Error : " + "keterangan error")
+                }
             }
+        }catch (e:Exception){
+            emit(Resource.error(e.message?: "Login gagal", null))
+            logs("Login gagal :" + e.message)
         }
-    }catch (e:Exception){
-        emit(Resource.error(e.message?: "Login gagal", null))
-        logs("Login gagal :" + e.message)
     }
-}
 
 //    function update profil
     fun updateUser(data: UpdateProfileRequest) = flow {
@@ -103,7 +104,28 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                 }
             }
         }catch (e:Exception){
-            emit(Resource.error(e.message?: "Login gagal", null))
+            emit(Resource.error(e.message?: "Upload gagal", null))
         }
     }
-}
+
+ //    function buat Toko
+    fun createToko(data: CreateTokoRequest) = flow {
+//        state loading
+        emit(Resource.loading(null))
+
+            try {
+                remote.createToko(data).let {
+                    if(it.isSuccessful) {
+
+                        val body = it.body()?.data  // menampng data toko
+//                Prefs.setUser(user)  // mengambil data toko
+                        emit(Resource.success(body))  // success
+                    }else{
+                        emit(Resource.error(it.getErrorBody()?.message ?: "Error default", null))
+                    }
+                }
+            }catch (e:Exception){
+                emit(Resource.error(e.message?: "Gagal membuat toko", null))
+            }
+        }
+    }

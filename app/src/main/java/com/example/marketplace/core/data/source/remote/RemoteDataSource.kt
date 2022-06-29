@@ -1,6 +1,7 @@
 package com.example.marketplace.core.data.source.remote
 
 import com.example.marketplace.core.data.source.remote.network.ApiService
+import com.example.marketplace.core.data.source.remote.request.CreateTokoRequest
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
 import com.example.marketplace.core.data.source.remote.request.RegisterRequest
 import com.example.marketplace.core.data.source.remote.request.UpdateProfileRequest
@@ -19,4 +20,6 @@ class RemoteDataSource(private val api: ApiService) {
 //    upload profil
     suspend fun uploadUser(id: Int? = null, fileImage: MultipartBody.Part? = null) = api.uploadUser(id, fileImage)
 
+//    buat toko
+    suspend fun createToko(data: CreateTokoRequest) = api.createToko(data)
 }
