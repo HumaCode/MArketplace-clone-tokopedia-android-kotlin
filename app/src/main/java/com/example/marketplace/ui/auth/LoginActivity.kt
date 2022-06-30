@@ -2,6 +2,7 @@ package com.example.marketplace.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.marketplace.ui.navigation.NavigationActivity
 import com.example.marketplace.core.data.source.remote.network.State
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
@@ -60,7 +61,8 @@ class LoginActivity : AppCompatActivity() {
             when (it.state) {
 //                jika success
                 State.SUCCESS -> {
-//                    dismisLoading()
+                    binding.pb.visibility = View.GONE
+
                     showToast("Selamat datang "+ it.data?.name)
 
 //                    arahkan ke navigation activity
@@ -69,13 +71,13 @@ class LoginActivity : AppCompatActivity() {
 
 //                jika error
                 State.ERROR -> {
-//                    dismisLoading()
+                    binding.pb.visibility = View.GONE
                     toastError(it.message ?: "Upszz error..")
                 }
 
 //                jika sedang loading
                 State.LOADING -> {
-//                    showLoading()  // tampilkan proggress bar
+                    binding.pb.visibility = View.VISIBLE  // tampilkan proggress bar
                 }
             }
         }

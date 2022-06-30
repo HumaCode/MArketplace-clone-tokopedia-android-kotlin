@@ -14,4 +14,7 @@ class AlamatTokoViewModel(private val repo: AppRepository): ViewModel() {
 //    function membuat alamat toko
     fun create(data: AlamatToko) = repo.createAlamatToko(data).asLiveData()
 
+//    function mengedit alamat toko
+    fun update(data: AlamatToko) = repo.updateAlamatToko(data).asLiveData()
+
 }

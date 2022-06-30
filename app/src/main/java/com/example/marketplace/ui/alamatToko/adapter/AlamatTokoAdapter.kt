@@ -5,6 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marketplace.core.data.source.model.AlamatToko
 import com.example.marketplace.databinding.ItemAlamatTokoBinding
+import com.example.marketplace.ui.alamatToko.EditAlamatTokoActivity
+import com.inyongtisto.myhelper.extension.intentActivity
+import com.inyongtisto.myhelper.extension.logs
+import com.inyongtisto.myhelper.extension.popUpMenu
+import com.inyongtisto.myhelper.extension.toJson
 
 class AlamatTokoAdapter : RecyclerView.Adapter<AlamatTokoAdapter.ViewHolder>(){
 
@@ -22,6 +27,18 @@ class AlamatTokoAdapter : RecyclerView.Adapter<AlamatTokoAdapter.ViewHolder>(){
                 tvAlamat.text = "${item.alamat}$kecamatan , ${item.kota}, ${item.provinsi}, ${item.kodepos}"
                 tvPhone.text = item.phone
                 tvEmail.text = item.email
+
+//                menu edit
+                val context = root.context
+                btnMenu.setOnClickListener {
+                    val listMenu = listOf("Edit", "Hapus")
+                    root.context.popUpMenu(btnMenu, listMenu) {
+                        when (it){
+                            "Edit" -> context.intentActivity(EditAlamatTokoActivity::class.java, item.toJson())
+                            "Hapus" -> logs("Hapus")
+                        }
+                    }
+                }
             }
         }
     }

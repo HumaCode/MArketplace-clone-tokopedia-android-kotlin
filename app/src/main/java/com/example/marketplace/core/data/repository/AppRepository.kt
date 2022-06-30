@@ -172,7 +172,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
             }
         }
 
-    //    function buat Toko
+//    function buat alamat Toko
     fun createAlamatToko(data: AlamatToko) = flow {
 //        state loading
         emit(Resource.loading(null))
@@ -190,6 +190,26 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
             }
         }catch (e:Exception){
             emit(Resource.error(e.message?: "Gagal membuat toko", null))
+        }
+    }
+
+//    function buat alamat Toko
+    fun updateAlamatToko(data: AlamatToko) = flow {
+//        state loading
+        emit(Resource.loading(null))
+
+        try {
+            remote.updateAlamatToko(data).let {
+                if(it.isSuccessful) {
+
+                    val body = it.body()?.data  // menampng data alamat toko
+                    emit(Resource.success(body))  // success
+                }else{
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Error default", null))
+                }
+            }
+        }catch (e:Exception){
+            emit(Resource.error(e.message?: "Gagal mengubah alamat", null))
         }
     }
 

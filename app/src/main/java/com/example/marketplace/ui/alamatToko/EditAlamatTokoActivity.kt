@@ -11,7 +11,7 @@ import com.example.marketplace.util.getTokoId
 import com.inyongtisto.myhelper.extension.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TambahAlamatTokoActivity : AppCompatActivity() {
+class EditAlamatTokoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTambahAlamatTokoBinding
     private val viewModel: AlamatTokoViewModel by viewModel()
@@ -22,6 +22,8 @@ class TambahAlamatTokoActivity : AppCompatActivity() {
     private var kota: String? = null
     private var kecamatan: String? = null
 
+    private var alamat = AlamatToko() // panggil model
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,10 +31,25 @@ class TambahAlamatTokoActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 //        toolbar
-        setToolbar(binding.lyToolbar.toolbar, "Tambah Alamat Baru")
+        setToolbar(binding.lyToolbar.toolbar, "Edit Alamat Toko")
 
+        getExtra()
         mainButton()
         setupUi()
+    }
+
+//    function mendapatkan data alamat yang mau di edit
+    private fun getExtra(){
+        val extra: String? = getStringExtra()
+        alamat = extra.toModel(AlamatToko::class.java) ?: AlamatToko()
+
+        binding.apply {
+            edtLabel.setText(alamat.label ?: "Kantor")
+            edtAlamat.setText(alamat.alamat)
+            edtKodepos.setText(alamat.kodepos)
+            edtEmail.setText(alamat.email)
+            edtPhone.setText(alamat.phone)
+        }
     }
 
     private fun setupUi() {
@@ -66,6 +83,22 @@ class TambahAlamatTokoActivity : AppCompatActivity() {
                 kecamatanId = 5505    // id kecamatan di rajaongkir
                 kecamatan = listKecamatan[it]
             }
+        }
+
+//        ketika di edit
+        binding.apply {
+            val indexProv = listProvinsi.indexOfFirst { it == alamat.provinsi }
+            spnProvinsi.setSelection(indexProv)
+        }
+
+        binding.apply {
+            val indexKota = listKota.indexOfFirst { it == alamat.kota }
+            spnKota.setSelection(indexKota)
+        }
+
+        binding.apply {
+            val indexKec = listKecamatan.indexOfFirst { it == alamat.kecamatan }
+            spnKecamatan.setSelection(indexKec)
         }
 
     }
@@ -120,6 +153,7 @@ class TambahAlamatTokoActivity : AppCompatActivity() {
 
 //    ambil data yang di perlukan
         val reqData = AlamatToko(
+            id = alamat.id,
             tokoId = getTokoId(),
             label = binding.edtLabel.getString(),
             alamat = binding.edtAlamat.getString(),
@@ -133,13 +167,13 @@ class TambahAlamatTokoActivity : AppCompatActivity() {
             kodepos = binding.edtKodepos.getString(),
             phone = binding.edtPhone.getString(),
         )
-        viewModel.create(reqData).observe(this) {
+        viewModel.update(reqData).observe(this) {
             when (it.state) {
 
                 State.SUCCESS -> {
                     binding.pb.visibility = View.GONE
 
-                    toastSuccess("Alamat berhasil ditambahkan")
+                    toastSuccess("Alamat berhasil diubah")
                     onBackPressed()
                 }
 

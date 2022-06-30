@@ -2,6 +2,7 @@ package com.example.marketplace.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.marketplace.core.data.source.remote.network.State
 import com.example.marketplace.core.data.source.remote.request.RegisterRequest
 import com.example.marketplace.databinding.ActivityRegisterBinding
@@ -59,7 +60,8 @@ class RegisterActivity : AppCompatActivity() {
             when (it.state) {
 //                jika success
                 State.SUCCESS -> {
-//                    dismisLoading()
+                    binding.pb.visibility = View.GONE
+
                     showToast("Akun berhasil dibuat ")
 
 //                    arahkan ke login activity
@@ -68,13 +70,13 @@ class RegisterActivity : AppCompatActivity() {
 
 //                jika error
                 State.ERROR -> {
-//                    dismisLoading()
+                    binding.pb.visibility = View.GONE
                     toastError(it.message ?: "Upszz error..")
                 }
 
 //                jika sedang loading
                 State.LOADING -> {
-//                    showLoading()  // tampilkan proggress bar
+                    binding.pb.visibility = View.VISIBLE  // tampilkan proggress bar
                 }
             }
 

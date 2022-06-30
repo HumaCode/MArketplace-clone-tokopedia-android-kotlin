@@ -2,6 +2,7 @@ package com.example.marketplace.ui.alamatToko
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.marketplace.core.data.source.remote.network.State
 import com.example.marketplace.databinding.ActivityAlamatTokoListBinding
 import com.example.marketplace.ui.alamatToko.adapter.AlamatTokoAdapter
@@ -55,6 +56,8 @@ class ListAlamatTokoActivity : AppCompatActivity() {
             when(it.state) {
 
                 State.SUCCESS -> {
+                    binding.pb.visibility = View.GONE
+
                     binding.tvError.toGone()
 
 //                    ambil data alamat toko
@@ -69,12 +72,15 @@ class ListAlamatTokoActivity : AppCompatActivity() {
                 }
 
                 State.ERROR -> {
+                    binding.pb.visibility = View.GONE
+
                     binding.tvError.toVisible()
                 }
 
                 State.LOADING -> {
 
-//                    showLoading()
+                    binding.pb.visibility = View.VISIBLE
+
                 }
 
 
