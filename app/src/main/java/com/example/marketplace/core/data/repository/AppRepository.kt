@@ -2,6 +2,7 @@ package com.example.marketplace.core.data.repository
 
 
 import com.example.marketplace.core.data.source.local.LocalDataSource
+import com.example.marketplace.core.data.source.model.AlamatToko
 import com.example.marketplace.core.data.source.remote.RemoteDataSource
 import com.example.marketplace.core.data.source.remote.network.Resource
 import com.example.marketplace.core.data.source.remote.request.CreateTokoRequest
@@ -151,23 +152,45 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
         }
     }
 
-    //    function cek toko user
+//    function menampilkan alamat toko user
     fun getAlamatToko() = flow {
+//        state loading
+            emit(Resource.loading(null))
+
+            try {
+                remote.getAlamatToko().let {
+                    if(it.isSuccessful) {
+                        val body = it.body()
+                        val data = body?.data  // menampng data alamat toko
+                        emit(Resource.success(data))  // success
+                    }else{
+                        emit(Resource.error(it.getErrorBody()?.message ?: "Error default", null))
+                    }
+                }
+            }catch (e:Exception){
+                emit(Resource.error(e.message?: "Alamat toko tidak ditemukan", null))
+            }
+        }
+
+    //    function buat Toko
+    fun createAlamatToko(data: AlamatToko) = flow {
 //        state loading
         emit(Resource.loading(null))
 
         try {
-            remote.getAlamatToko().let {
+            remote.createAlamatToko(data).let {
                 if(it.isSuccessful) {
-                    val body = it.body()
-                    val data = body?.data  // menampng data alamat toko
-                    emit(Resource.success(data))  // success
+
+                    val body = it.body()?.data  // menampng data toko
+                    //                Prefs.setUser(user)  // mengambil data toko
+                    emit(Resource.success(body))  // success
                 }else{
                     emit(Resource.error(it.getErrorBody()?.message ?: "Error default", null))
                 }
             }
         }catch (e:Exception){
-            emit(Resource.error(e.message?: "Alamat toko tidak ditemukan", null))
+            emit(Resource.error(e.message?: "Gagal membuat toko", null))
         }
     }
+
 }

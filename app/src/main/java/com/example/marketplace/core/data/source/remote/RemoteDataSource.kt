@@ -1,5 +1,6 @@
 package com.example.marketplace.core.data.source.remote
 
+import com.example.marketplace.core.data.source.model.AlamatToko
 import com.example.marketplace.core.data.source.remote.network.ApiService
 import com.example.marketplace.core.data.source.remote.request.CreateTokoRequest
 import com.example.marketplace.core.data.source.remote.request.LoginRequest
@@ -27,6 +28,9 @@ class RemoteDataSource(private val api: ApiService) {
 //    cek toko
     suspend fun getUser(id: Int? = null) = api.getUser(id)
 
-//    alamat toko
+//    menampilkan alamat toko
     suspend fun getAlamatToko() = api.getAlamatToko(getTokoId())
+
+//    membuat alamat toko
+    suspend fun createAlamatToko(data: AlamatToko) = api.createAlamatToko(data)
 }

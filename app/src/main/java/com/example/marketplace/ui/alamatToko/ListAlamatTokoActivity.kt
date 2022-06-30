@@ -24,15 +24,33 @@ class ListAlamatTokoActivity : AppCompatActivity() {
         setToolbar(binding.lyToolbar.toolbar, "Daftar Alamat")
 
         mainButton()
-        observer()
+        getData()
         setupAdapter()
+        setupUi()
+    }
+
+//    function update otomatis
+    override fun onResume() {
+        getData()
+        super.onResume()
+    }
+
+    private fun setupUi() {
+        binding.apply {
+            lyToolbar.btnTambah.apply {
+                lyToolbar.btnTambah.toVisible()
+                setOnClickListener {
+                    intentActivity(TambahAlamatTokoActivity::class.java)
+                }
+            }
+        }
     }
 
     private fun setupAdapter() {
         binding.rvData.adapter = adapter
     }
 
-    private fun observer() {
+    private fun getData() {
         viewModel.get().observe(this) {
             when(it.state) {
 
@@ -56,6 +74,7 @@ class ListAlamatTokoActivity : AppCompatActivity() {
 
                 State.LOADING -> {
 
+//                    showLoading()
                 }
 
 

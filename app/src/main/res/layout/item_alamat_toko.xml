@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
             android:layout_marginVertical="@dimen/_10sdp"
-            android:background="#E4E4E4"/>
+            android:background="#F6F6F6"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_phone"
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
             android:layout_marginVertical="@dimen/_10sdp"
-            android:background="#E4E4E4"/>
+            android:background="#F6F6F6"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_email"
@@ -83,6 +83,12 @@
             android:textColor="@color/grey"
             android:drawableTint="@color/grey"
             android:drawablePadding="@dimen/_8sdp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:background="#C6C6C6"/>
 
     </LinearLayout>
 

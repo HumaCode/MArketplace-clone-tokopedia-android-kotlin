@@ -1,12 +1,13 @@
 package com.example.marketplace.core.data.source.model
 
 data class AlamatToko(
+    val label: String? = null,
     val alamat: String? = null,
     val email: String? = null,
     val id: Int? = null,
     val isActive: Boolean? = null,
-    val kecamatan: Int? = null,
-    val kecamatanId: String? = null,
+    val kecamatan: String? = null,
+    val kecamatanId: Int? = null,
     val kodepos: String? = null,
     val kota: String? = null,
     val kotaId: Int? = null,

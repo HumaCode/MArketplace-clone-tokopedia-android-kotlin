@@ -55,4 +55,9 @@
     <string name="alamat_saya">Jl. Pahlawan No. 10 Bandungan wetan kajen rt 11 rw 03 kec. Kajen, kel. Kajen, kab. Pekalongan</string>
     <string name="nomer">082324118691</string>
     <string name="data_tidak_ditemukan">Data tidak ditemukan</string>
+    <string name="provinsi">Provinsi</string>
+    <string name="kota">Kota</string>
+    <string name="kecamatan">Kecamatan</string>
+    <string name="kode_pos">Kode Pos</string>
+    <string name="phone">Phone</string>
 </resources>

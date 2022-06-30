@@ -51,8 +51,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nama_mudah_diingat"
-                android:textColor="@color/grey"
-                android:textSize="@dimen/_10ssp"/>
+                android:textColor="#757575"
+                android:textSize="@dimen/_10ssp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -76,8 +76,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/lokasi"
-                android:textColor="@color/grey"
-                android:textSize="@dimen/_10ssp"/>
+                android:textColor="#757575"
+                android:textSize="@dimen/_10ssp" />
 
         </LinearLayout>
 

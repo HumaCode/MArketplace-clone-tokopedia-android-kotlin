@@ -54,9 +54,15 @@ interface ApiService  {
         @Path("id") int: Int? = null,
     ): Response<LoginResponse>
 
-    //    API mendapatkan alamat
+//    API mendapatkan alamat
     @GET("alamat-toko/{id}")
     suspend fun getAlamatToko(
         @Path("id") idToko: Int? = null,
     ): Response<BaseListResponse<AlamatToko>>
+
+//    API Buat alamat Toko
+    @POST("alamat-toko")
+    suspend fun createAlamatToko(
+        @Body data: AlamatToko
+    ): Response<BaseSingleResponse<AlamatToko>>
 }
