@@ -72,4 +72,10 @@ interface ApiService  {
         @Path("id") id: Int? = null,
         @Body data: AlamatToko,
     ): Response<BaseSingleResponse<AlamatToko>>
+
+    //    API ubah alamat Toko
+    @DELETE("alamat-toko/{id}")
+    suspend fun deleteAlamatToko(
+        @Path("id") id: Int? = null,
+    ): Response<BaseSingleResponse<AlamatToko>>
 }

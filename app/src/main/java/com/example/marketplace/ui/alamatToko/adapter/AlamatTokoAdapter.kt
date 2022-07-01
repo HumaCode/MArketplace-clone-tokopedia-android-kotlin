@@ -11,7 +11,7 @@ import com.inyongtisto.myhelper.extension.logs
 import com.inyongtisto.myhelper.extension.popUpMenu
 import com.inyongtisto.myhelper.extension.toJson
 
-class AlamatTokoAdapter : RecyclerView.Adapter<AlamatTokoAdapter.ViewHolder>(){
+class AlamatTokoAdapter(val onDelete : (item: AlamatToko, pos: Int) -> Unit) : RecyclerView.Adapter<AlamatTokoAdapter.ViewHolder>(){
 
     private var data = ArrayList<AlamatToko>()
 
@@ -35,12 +35,17 @@ class AlamatTokoAdapter : RecyclerView.Adapter<AlamatTokoAdapter.ViewHolder>(){
                     root.context.popUpMenu(btnMenu, listMenu) {
                         when (it){
                             "Edit" -> context.intentActivity(EditAlamatTokoActivity::class.java, item.toJson())
-                            "Hapus" -> logs("Hapus")
+                            "Hapus" -> onDelete.invoke(item, adapterPosition)
                         }
                     }
                 }
             }
         }
+    }
+
+    fun removeAt(index: Int){
+        data.removeAt(index)
+        notifyItemRemoved(index)
     }
 
     fun addItems(items: List<AlamatToko>) {

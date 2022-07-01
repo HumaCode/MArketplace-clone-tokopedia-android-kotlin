@@ -17,4 +17,7 @@ class AlamatTokoViewModel(private val repo: AppRepository): ViewModel() {
 //    function mengedit alamat toko
     fun update(data: AlamatToko) = repo.updateAlamatToko(data).asLiveData()
 
+//    function hapus alamat toko
+    fun delete(id: Int?) = repo.deleteAlamatToko(id).asLiveData()
+
 }

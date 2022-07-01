@@ -77,16 +77,16 @@ class TambahAlamatTokoActivity : AppCompatActivity() {
                 if(validate()) simpan()
             }
 
-            lyToolbar.btnSimpan.setOnLongClickListener {
-//                data dummy otomatis
-                edtLabel.setText("Kantor")
-                edtAlamat.setText("Jl, Alamat Kantor No. 3")
-                edtKodepos.setText("11223")
-                edtEmail.setText("kantor@gmail.com")
-                edtPhone.setText("092277261")
-
-                return@setOnLongClickListener true
-            }
+//            lyToolbar.btnSimpan.setOnLongClickListener {
+////                data dummy otomatis
+////                edtLabel.setText("Kantor")
+////                edtAlamat.setText("Jl, Alamat Kantor No. 3")
+////                edtKodepos.setText("11223")
+////                edtEmail.setText("kantor@gmail.com")
+////                edtPhone.setText("092277261")
+//
+//                return@setOnLongClickListener true
+//            }
         }
     }
 
